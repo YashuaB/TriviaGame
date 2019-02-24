@@ -21,9 +21,12 @@ function initializeGame(){
   //must select the whole start container and divs within to hide
   // when game start display all style when start is clicked but set default state display none!!!
   $("#start-button").append("<button>" + "start" + "</button>")
-  
+  $("#start-button > button").addClass("button-style")
+
   $("#start-button").click(function(){
     $(".button-background").css({display:"none"})
+       $(".hidden-container").css({display:"block"})
+
     startClock()
    
   }) 
@@ -31,7 +34,7 @@ function initializeGame(){
 
 
 
-
+var timer;
 
 function startClock(){
   if (!clockIsOn){
@@ -44,7 +47,7 @@ function timeDecrease(){
 
   time--;
 
- var timer = timerDisplay(time)
+  timer = timerDisplay(time)
   
 
   if( time === 0){
@@ -83,9 +86,9 @@ function stopClock(){
  function gameOver(){
    // pushing the scores to screen
    // transition to scoreboard screen
-  $("wrong").text(unanswered)
-  $("right").text(correctAnsw)
-  $("not-answered").text(wrongAnsw)
+  $("#wrong").text(unanswered)
+  $("#right").text(correctAnsw)
+  $("#not-answered").text(wrongAnsw)
 }
 
 
@@ -95,33 +98,55 @@ function stopClock(){
 // create for loop to generate form radio buttons, then split the assign the correct answer the Class"right answer"
 // the same for the wrong
 //set radio button state to true or false then from that state assign it a count of unaswered
-var array = [1,2,3,4]
+//var array = [1,2,3,4]
 
-for(var i = 0; i < array.length;++i){
-  radio = $("<input>")
+//for(var i = 0; i < array.length;++i){
+ // radio = $("<input>")
 
 //I want iterate thru the array creating form element then asign unique value to each arrary
-}
+//}
+var userPick = " ";
 
+$("input").click(function(){
+   userPick = $(this).val()
 
-
-
-
-userPick;
-$("#quiz").click(function(){
-//get value of user pick
-})
-
-if( userPick === answer// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
+ console.log(userPick)
+ event.preventDefault();
+ if( userPick == 1 || 2 || 4 || 6 || 9 // another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
   ) {
   // zero to increment answer but not before
  correctAnsw++;
-
+console.log(correctAnsw)
 }
-if ( userpick === wronganswer){
-
-
+ else if(timer === 0){
+  gameOver()
 }
+else{
+ wrongAnsw++;
+console.log(wrongAnsw)
+}
+
 
 })
 
+
+
+
+
+
+
+
+
+})
+
+/*if( userPick === "right"// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
+  ) {
+  // zero to increment answer but not before
+ correctAnsw++;
+console.log(correctAnsw)
+}
+if ( userPick === "wrong"){
+ wrongAnsw++;
+console.log(wrongAnsw)
+}
+ */

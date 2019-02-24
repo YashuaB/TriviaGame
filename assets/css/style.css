@@ -1,7 +1,40 @@
-.start{
-  max-width: 1024px;
-  width: 100%;
-  height: 1000px;
-  background-color: aqua;
+body{ background-image: url("assets/images/HollywoodSign.jpg");
+
 }
 
+
+
+.start{
+  max-width: 1024px;
+  width: 40%;
+  height: 400px;
+  background-color: aqua;
+  position: relative;
+  top:90px;
+  left:30%;
+}
+
+
+.button-style{
+  width: 250px;
+  height:40px ;
+  background-color: blue;
+  position: absolute;
+  top:50%;
+  left:27%;
+  
+}
+
+
+.hidden-container{
+  display: none;
+}
+
+.tvDesign{
+  width: 370px;
+  height: 250px;
+  position: relative;
+  left: 30%;
+  top: 100px;
+
+}
