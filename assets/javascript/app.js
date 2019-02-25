@@ -71,7 +71,7 @@ function timerDisplay(time){
   else if (minutes < 10) {
     minutes = "0" + minutes;
   }
-  return minutes + ":" + seconds;
+  return minutes + " " + seconds;
 }
 
 
@@ -109,18 +109,30 @@ var userPick = " ";
 
 $("input").click(function(){
    userPick = $(this).val()
+   userPick2 = $(this)
+   //userPick3 = $(this)
+   
 
+   userPick3 = userPick3[0].checked
+// if value equal false and clicked  increse wrong answer
+// if value equal true and clicked increse right answer
+// if timer === 0 then check values of checkboxes then do above if's
+// else if boxes doesn't equal clicked increse not answered
+// then push score to the screen
  console.log(userPick)
- event.preventDefault();
- if( userPick == 1 || 2 || 4 || 6 || 9 // another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
+ console.log(userPick2)
+ console.log(userPick3)
+
+
+ if( timer === 0 && userPick2 === userPick2 && userPick === "right"// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
   ) {
   // zero to increment answer but not before
  correctAnsw++;
 console.log(correctAnsw)
 }
- else if(timer === 0){
+ /*else if(timer === 0){
   gameOver()
-}
+}*/
 else{
  wrongAnsw++;
 console.log(wrongAnsw)
@@ -129,10 +141,38 @@ console.log(wrongAnsw)
 
 })
 
+ //function radioValue(radioName){
+   //var getRadio = $("input:.question").attr(radioName)
+  var rad = $("input[name='radio1']")
+  var rad2 =  $("input[name='radio2']")
+  var rad3 =  $("input[name='radio3']")
+  var rad4 =  $("input[name='radio4']")
+  var rad5 =  $("input[name='radio5']")
+  var rad6 =  $("input[name='radio6']")
+  var rad7 =  $("input[name='radio7']")
+  var rad8 =  $("input[name='radio8']")
+  var rad9 =  $("input[name='radio9']")
+  //var rd1 = $("input[name='radio1']").prop("checked")
+
+  var ray = [rad,rad2,rad3,rad4,rad5,rad6,rad7,rad8,rad9]
+
+  for( var i = 0; i < ray.length;++i){
+    //console.log(radioCheck)
+    var radioCheck = $(ray[i]).change(function(){
+      if(radioCheck.checked){
+      //  console.log(radioCheck)
+      }
+    })
+
+    //$(ray[i]).prop("checked")
+    //console.log(ray[i].prop("checked"))
+  }
+  //var rd1 =
+  
+ //}
 
 
-
-
+radioValue()
 
 
 
