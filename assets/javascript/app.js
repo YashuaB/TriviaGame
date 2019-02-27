@@ -9,6 +9,8 @@ var wrongAnsw = 0
 var time = 120;
 var clockTimer;
 var clockIsOn = false;
+var checkBoxAnswValue = []
+
 // need click event to tie into start of game with also a time delay for the timer?
 
 // the start button is going to have take the whole display and have matching background
@@ -21,7 +23,7 @@ function initializeGame(){
   //must select the whole start container and divs within to hide
   // when game start display all style when start is clicked but set default state display none!!!
   $("#start-button").append("<button>" + "start" + "</button>")
-  $("#start-button > button").addClass("button-style")
+   $("#start-button > button").addClass("button-style")
 
   $("#start-button").click(function(){
     $(".button-background").css({display:"none"})
@@ -100,93 +102,76 @@ function stopClock(){
 //set radio button state to true or false then from that state assign it a count of unaswered
 //var array = [1,2,3,4]
 
-//for(var i = 0; i < array.length;++i){
- // radio = $("<input>")
+$("input:checkbox").click(function(){
+  var check = $(this)
+ 
+  if (check.is(":checked")){
+  var checkGroup = "input:checkbox[name='" + check.attr("name") +"']"
 
-//I want iterate thru the array creating form element then asign unique value to each arrary
-//}
-var userPick = " ";
-
-$("input").click(function(){
-   userPick = $(this).val()
-   userPick2 = $(this)
-   //userPick3 = $(this)
-   
-
-   userPick3 = userPick3[0].checked
-// if value equal false and clicked  increse wrong answer
-// if value equal true and clicked increse right answer
-// if timer === 0 then check values of checkboxes then do above if's
-// else if boxes doesn't equal clicked increse not answered
-// then push score to the screen
- console.log(userPick)
- console.log(userPick2)
- console.log(userPick3)
-
-
- if( timer === 0 && userPick2 === userPick2 && userPick === "right"// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
-  ) {
-  // zero to increment answer but not before
- correctAnsw++;
-console.log(correctAnsw)
-}
- /*else if(timer === 0){
-  gameOver()
-}*/
-else{
- wrongAnsw++;
-console.log(wrongAnsw)
-}
-
-
-})
-
- //function radioValue(radioName){
-   //var getRadio = $("input:.question").attr(radioName)
-  var rad = $("input[name='radio1']")
-  var rad2 =  $("input[name='radio2']")
-  var rad3 =  $("input[name='radio3']")
-  var rad4 =  $("input[name='radio4']")
-  var rad5 =  $("input[name='radio5']")
-  var rad6 =  $("input[name='radio6']")
-  var rad7 =  $("input[name='radio7']")
-  var rad8 =  $("input[name='radio8']")
-  var rad9 =  $("input[name='radio9']")
-  //var rd1 = $("input[name='radio1']").prop("checked")
-
-  var ray = [rad,rad2,rad3,rad4,rad5,rad6,rad7,rad8,rad9]
-
-  for( var i = 0; i < ray.length;++i){
-    //console.log(radioCheck)
-    var radioCheck = $(ray[i]).change(function(){
-      if(radioCheck.checked){
-      //  console.log(radioCheck)
-      }
-    })
-
-    //$(ray[i]).prop("checked")
-    //console.log(ray[i].prop("checked"))
-  }
-  //var rd1 =
   
- //}
+  console.log($(this).val())
+  
+  $(checkGroup).prop("checked",false)
+  check.prop("checked",true)
+  } else{check.prop("checked", false)}
 
 
-radioValue()
+
+  // $("input:checkbox[name=hollywood]:checked").each
+  // (function(){
+  // $(this).attr("checkbox")
+  // $(this).prop()
+  // console.log( $(this).attr("checkbox"));
+  // console.log( $(this).val());
+  // })
+
+  
+
+
+})
+
+
+//this button will call all the values from the check boxes and check them 
+// against the game conditons, then display when and loses
+// this button will show up as a window when  the time runs out or at the bottom of
+// the screen? 
+
+
+  function gameSubmit() {
+    $("#done-button").append("<button>" + "Submit" + "</button>")
+    $("#done-button > button").addClass("button-style")
+
+    $("#done-button").click(function(){
+      $(".hidden-container").css({ display: "none" })
+      $(".score-board").css({ display: "block" })
+
+      var checkValue = $(".question:checked")
+
+        for(var i = 0; i < checkValue.length;i++){
+          if(checkValue[i].checked){
+            checkBoxAnswValue.push(checkValue[i].value)
+            console.log(checkValue[i].value)
+            console.log( checkBoxAnswValue)
+          }
+        }
+
+          for(var i = 0; i < checkBoxAnswValue.length;i++){
+            if(checkBoxAnswValue[i] === "wrong"){
+              wrongAnsw++;
+              console.log( wrongAnsw)
+            } 
+          }
+    })
+    
+  }
+
+  
+
+  gameSubmit()
+
 
 
 
 
 })
 
-/*if( userPick === "right"// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
-  ) {
-  // zero to increment answer but not before
- correctAnsw++;
-console.log(correctAnsw)
-}
-if ( userPick === "wrong"){
- wrongAnsw++;
-console.log(wrongAnsw)
-}
- */
