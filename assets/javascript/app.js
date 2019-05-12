@@ -3,7 +3,6 @@ $(document).ready(function () {
 
 
   var score = 0
-<<<<<<< HEAD
 var unanswered = 0
 var correctAnsw = 0
 var wrongAnsw = 0
@@ -13,15 +12,6 @@ var clockIsOn = false;
 var checkBoxAnswValue = []
 
 // need click event to tie into start of game with also a time delay for the timer?
-=======
-  var unanswered = 0
-  var correctAnsw = 0
-  var wrongAnsw = 0
-  var time = 120;
-  var clockTimer;
-  var clockIsOn = false;
-  // need click event to tie into start of game with also a time delay for the timer?
->>>>>>> 7ffd54cb59bd7ca71a8a38ecedbd330152e06bb2
 
   // the start button is going to have take the whole display and have matching background
 
@@ -29,19 +19,11 @@ var checkBoxAnswValue = []
   initializeGame()
 
 
-<<<<<<< HEAD
-function initializeGame(){
-  //must select the whole start container and divs within to hide
-  // when game start display all style when start is clicked but set default state display none!!!
-  $("#start-button").append("<button>" + "start" + "</button>")
-   $("#start-button > button").addClass("button-style")
-=======
   function initializeGame() {
     //must select the whole start container and divs within to hide
     // when game start display all style when start is clicked but set default state display none!!!
     $("#start-button").append("<button>" + "start" + "</button>")
     $("#start-button > button").addClass("button-style")
->>>>>>> 7ffd54cb59bd7ca71a8a38ecedbd330152e06bb2
 
     $("#start-button").click(function () {
       $(".button-background").css({ display: "none" })
@@ -53,7 +35,73 @@ function initializeGame(){
   }
 
 
+  // var answerObj = {
+  //   question: "how old are you",
+  //   answer: "25",
+  //   correct: "25"
+  // }
+  //   for(var i in answerObj){
+  //     if( $("input").checked && answerObj.answer === answer){
+  //       ++correctAnsw;
+      
+  //     } else {
+  //       ++wrongAnsw;
+  //     }
+  //   } }  if(checkbox === not checked){
+  //     ++unanswered;
 
+  // }
+
+  var options = [
+    {
+      question: "Pupusas, handmade thick stuffed corn tortillas, are a traditional dish from what country?", 
+      choice: ["Ethiopia", "El Salvadore", "Peru", "Guatamala"],
+      answer: 1,
+     },
+     {
+       question: "What popular soda beverage was originally developed as a mixer for whiskey?", 
+      choice: ["Mountain Dew", "Sprite", "7-UP", "Coke"],
+      answer: 0,
+     }, 
+     {
+       question: "Kopi luwak is a very expensive type of what?", 
+      choice: ["Spice", "Caviar", "Coffee", "Rice variety" ],
+      answer: 2,
+    }, 
+    {
+      question: "Which is not an ingredient in a Harvey Wallbanger cocktail?", 
+      choice: ["Orange Juice", "Vodka", "Sour Mix", "Galliano" ],
+      answer: 2,
+    }, 
+    {
+      question: "How many items are there in a Bakers' Dozen?", 
+      choice: ["12", "6", "24", "13" ],
+      answer: 3,
+    }, 
+    {
+      question: "What is the most widely eaten fish in the world?", 
+      choice: ["Tilapia", "Herring", "Sardine", "Tuna" ],
+      answer: 1,
+    }, 
+    {
+      question: "Which fruit does not ripen once it has been picked?", 
+      choice: ["Banana", "Lemon", "Mango", "Apple" ],
+      answer: 1,
+    }];
+// works but can dive deeper in object
+    // options.forEach(element => {
+      
+    //   $("input").attr("value", element.choice)
+    // });
+
+    // for (var i in options){
+    //    $("input").attr("value", "answer")
+    // }
+
+
+    // for ( var i = 0; i < options.length;i++){
+    //   $("input").attr("value", options.choice[i])
+    // }
   var timer;
 
   function startClock() {
@@ -73,7 +121,7 @@ function initializeGame(){
     if (time === 0) {
       stopClock();
     }
-    console.log(timer)
+    // console.log(timer)
     $("#timer").text(timer);
   }
 
@@ -98,7 +146,7 @@ function initializeGame(){
   function stopClock() {
     clearInterval(clockTimer);
     clockIsOn = false;
-    // gameOver()
+    gameOver()
     //stop clock need to change page 
     //display to wins and loses & stop clock
   }
@@ -106,14 +154,14 @@ function initializeGame(){
   function gameOver() {
     // pushing the scores to screen
     // transition to scoreboard screen
-    $("#wrong").text(unanswered)
+    $("#wrong").text(wrongAnsw)
     $("#right").text(correctAnsw)
-    $("#not-answered").text(wrongAnsw)
+    $(".score-board").css({display:"block"})
+    // $("#not-answered").text()
   }
 
 
 
-<<<<<<< HEAD
 /*****Quiz Logic *****/
 // each form is going to have the value correct or incorrect
 // create for loop to generate form radio buttons, then split the assign the correct answer the Class"right answer"
@@ -121,33 +169,33 @@ function initializeGame(){
 //set radio button state to true or false then from that state assign it a count of unaswered
 //var array = [1,2,3,4]
 
-$("input:checkbox").click(function(){
-  var check = $(this)
+// $("input:checkbox").click(function(){
+//   var check = $(this)
  
-  if (check.is(":checked")){
-  var checkGroup = "input:checkbox[name='" + check.attr("name") +"']"
+//   if (check.is(":checked")){
+//   var checkGroup = "input:checkbox[name='" + check.attr("name") +"']"
 
   
-  console.log($(this).val())
+//   // console.log($(this).val())
   
-  $(checkGroup).prop("checked",false)
-  check.prop("checked",true)
-  } else{check.prop("checked", false)}
+//   $(checkGroup).prop("checked",false)
+//   check.prop("checked",true)
+//   } else{check.prop("checked", false)}
 
 
 
-  // $("input:checkbox[name=hollywood]:checked").each
-  // (function(){
-  // $(this).attr("checkbox")
-  // $(this).prop()
-  // console.log( $(this).attr("checkbox"));
-  // console.log( $(this).val());
-  // })
+//   // $("input:checkbox[name=hollywood]:checked").each
+//   // (function(){
+//   // $(this).attr("checkbox")
+//   // $(this).prop()
+//   // console.log( $(this).attr("checkbox"));
+//   // console.log( $(this).val());
+//   // })
 
   
 
 
-})
+// })
 
 
 //this button will call all the values from the check boxes and check them 
@@ -156,133 +204,54 @@ $("input:checkbox").click(function(){
 // the screen? 
 
 
-  function gameSubmit() {
+
+
+  
     $("#done-button").append("<button>" + "Submit" + "</button>")
     $("#done-button > button").addClass("button-style")
 
     $("#done-button").click(function(){
       $(".hidden-container").css({ display: "none" })
       $(".score-board").css({ display: "block" })
+      // $.each($("input[name='hollywood']:checked")) 
+      var checkValue = $.each($(".question:checked"), function(){
 
-      var checkValue = $(".question:checked")
+        console.log(checkValue)
+      console.log($(this).val())
+        
+          if($(this).val()  === "correct"){
+            correctAnsw++;
+           
 
-        for(var i = 0; i < checkValue.length;i++){
-          if(checkValue[i].checked){
-            checkBoxAnswValue.push(checkValue[i].value)
-            console.log(checkValue[i].value)
+            console.log(correctAnsw)
+            
             console.log( checkBoxAnswValue)
-          }
-        }
 
-          for(var i = 0; i < checkBoxAnswValue.length;i++){
-            if(checkBoxAnswValue[i] === "wrong"){
+          } else if($(this).val() === "wrong"){
               wrongAnsw++;
-              console.log( wrongAnsw)
+             
+              console.log(wrongAnsw)
+              console.log( checkBoxAnswValue)
             } 
-          }
+        
+      })
+      checkBoxAnswValue.push(wrongAnsw)
+      checkBoxAnswValue.push(correctAnsw)
+      console.log( checkBoxAnswValue)
+          // for(var i = 0; i < checkBoxAnswValue.length;i++){
+          //   if(checkBoxAnswValue[i] === "wrong"){
+          //     wrongAnsw++;
+          //     console.log( wrongAnsw)
+          //   } 
+          // }
+          stopClock()
     })
     
-  }
-
-  
-=======
-  /*****Quiz Logic *****/
-  // each form is going to have the value correct or incorrect
-  // create for loop to generate form radio buttons, then split the assign the correct answer the Class"right answer"
-  // the same for the wrong
-  //set radio button state to true or false then from that state assign it a count of unaswered
-  //var array = [1,2,3,4]
-
-  //for(var i = 0; i < array.length;++i){
-  // radio = $("<input>")
-
-  //I want iterate thru the array creating form element then asign unique value to each arrary
-  //}
-  var userPick = " ";
-
-  $("input").click(function () {
-    userPick = $(this).val()
-    userPick2 = $(this)
-    userPick3 = $(this)
-
-
-    userPick3 = userPick3[0].checked
-    answArray.push(userPick)
-    // if value equal false and clicked  increse wrong answer
-    // if value equal true and clicked increse right answer
-    // if timer === 0 then check values of checkboxes then do above if's
-    // else if boxes doesn't equal clicked increse not answered
-    // then push score to the screen
-    console.log(userPick)
-    console.log(userPick2)
-    console.log(userPick3)
-    console.log(answArray)
-
-  //   if (timer === 0 && userPick2 === userPick2 && userPick === "right"// another way to check answer, userPick === John || will || fredd && timer === 0, check if timer
-  //   ) {
-  //     // zero to increment answer but not before
-  //     correctAnsw++;
-  //     console.log(correctAnsw)
-  //   }
-  //   /*else if(timer === 0){
-  //    gameOver()
-  //  }*/
-  //   else {
-  //     wrongAnsw++;
-  //     console.log(wrongAnsw)
-  //   }
-
-
-  })
-  var rad = $("input:checkbox")
-  var answArray = []
-  function checkResults() {
-    // go through all radio buttons, push to array right or wrong of checked value
-    for(var i = 0; i < answArray.length;++i){
-      if(answArray[i] === "wrong"){
-        wrongAnsw++;
-        console.log(answArray[i])
-      }
-    }
-   
-    
-    
-  }
   
 
-  checkResults()
-  // //function radioValue(radioName){
-  // //var getRadio = $("input:.question").attr(radioName)
-  // var rad = $("input[name='radio1']")
-  // var rad2 = $("input[name='radio2']")
-  // var rad3 = $("input[name='radio3']")
-  // var rad4 = $("input[name='radio4']")
-  // var rad5 = $("input[name='radio5']")
-  // var rad6 = $("input[name='radio6']")
-  // var rad7 = $("input[name='radio7']")
-  // var rad8 = $("input[name='radio8']")
-  // var rad9 = $("input[name='radio9']")
-  //var rd1 = $("input[name='radio1']").prop("checked")
+  
 
-  // var ray = [rad, rad2, rad3, rad4, rad5, rad6, rad7, rad8, rad9]
-
-  // for (var i = 0; i < ray.length; ++i) {
-  //   //console.log(radioCheck)
-  //   var radioCheck = $(ray[i]).change(function () {
-  //     if (radioCheck.checked) {
-  //       //  console.log(radioCheck)
-  //     }
-  //   })
-
-  //   //$(ray[i]).prop("checked")
-  //   //console.log(ray[i].prop("checked"))
-  // }
-  //var rd1 =
-
-  //}
->>>>>>> 7ffd54cb59bd7ca71a8a38ecedbd330152e06bb2
-
-  gameSubmit()
+  
 
 
 
