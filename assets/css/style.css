@@ -51,24 +51,63 @@ bottom: 70%;
 
 
 
-.tvDesign{
+/* .tvDesign{
   width: 420px;
   height: 290px;
   position: relative;
   left: 35%;
   top: 40px;
-}
+} */
 
+/* .question{
+  position: relative;
+  left: 32%;
+  top: 38px;
+  font-size: 13px;
+} */
+
+/* .tv {
+  position: relative;
+  left: 32%;
+  top: 38px;
+  font-size: 13px;
+} */
+
+.tvDesign{
+  /* width: 420px;
+  height: 290px; */
+  position: relative;
+  left: 0%;
+  top: 40px;
+} 
+.q{
+  position: relative;
+    left: 92px;
+    top: -332px;
+    font-size: 13px;
+}
 .question{
   position: relative;
+    left: -25px;
+    top: 32px;
+    font-size: 13px;
+
+}
+
+.tv {
+  position: relative;
   left: 32%;
   top: 38px;
   font-size: 13px;
 }
 
-.tv1 p{
+.score-board{
+  display: none;
+  width: 600px;
+  height: 300px;
+  background-color: yellow;
+  text-align: center;
+  color: white;
   position: relative;
-  left: 32%;
-  top: 38px;
-  font-size: 13px;
+  left: 27%;
 }
